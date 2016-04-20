@@ -1,3 +1,17 @@
 .error{
     color: red;
 }
+
+.plan {
+    padding: 0.5em 0;
+}
+
+.plan-name {
+    display: inline-block;
+    width: 6em;
+}
+
+.plan-price {
+    display: inline-block;
+    width: 6em;
+}

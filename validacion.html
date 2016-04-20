@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Testing Vue.js</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div id="app">
-        <h1>{{ message }}</h1>
+        <form>
+            <span class="error" v-show="!message">
+                You must enter a message
+            </span>
+            <br>
 
-        <input v-model="message">
+            <textarea v-model="message"></textarea>
+            <br>
+
+            <button type="submit" v-if="message">Send Message</button>
+        </form>
 
         <pre>
             {{ $data | json }}
@@ -17,10 +26,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
     <script>
+
         new Vue({
             el: '#app',
             data: {
-                message: 'Hello World'
+                message: ''
             }
         });
     </script>

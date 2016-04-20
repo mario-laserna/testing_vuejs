@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing Vue.js</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <h1>Skill: {{ skill }}</h1>
+    <input type="text" v-model="points">
+
+    <br>
+
+    <h2>{{ fullName }}</h2>
+    <input type="text" v-model="first">
+    <input type="text" v-model="last">
+
+    <h2>{{ fullName2 }}</h2>
+    <input type="text" v-model="first2">
+    <input type="text" v-model="last2">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.js"></script>
+    <script>
+        new Vue({
+            el: 'body',
+
+            data : {
+                points: 150,
+                first: 'Mario',
+                last: 'Laserna',
+                fullName: 'Mario Laserna',
+                first2: 'Mario',
+                last2: 'Laserna'
+            },
+
+            computed:{
+                skill: function () {
+                    if(this.points <= 100){
+                        return 'Beginner';
+                    }
+
+                    return 'Advanced'
+                },
+
+                fullName2 : function () {
+                    return this.first2 + ' ' + this.last2;
+                }
+            },
+
+            watch: {
+                first: function (first) {
+                    //alert(first);
+                    this.fullName = first + ' ' + this.last;
+                },
+
+                last: function (last) {
+                    //alert(first);
+                    this.fullName = this.first + ' ' + last;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

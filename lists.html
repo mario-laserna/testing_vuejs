@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing Vue.js</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li :class="{'completed': task.completed}"
+                v-for="task in tasks"
+                @click="toggleCompletedFor(task)"
+            >
+                {{ task.body }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.js"></script>
+    <script src="js/lists.js"></script>
+</body>
+</html>

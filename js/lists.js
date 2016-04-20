@@ -1,3 +1,8 @@
+Vue.component('tasks', {
+    template: '#tasks-template',
+    props: ['list']
+});
+
 new Vue({
     el: '#app',
 
@@ -7,11 +12,5 @@ new Vue({
             { body: 'Go to the bank', completed: false},
             { body: 'Go to the doctor', completed: true}
         ]
-    },
-
-    methods : {
-        toggleCompletedFor: function (task){
-            task.completed = !task.completed;
-        }
     }
 });

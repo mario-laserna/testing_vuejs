@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing Vue.js</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="app">
+        <form action="done.html" @submit.prevent="handleIt">
+            <button type="submit">Submit me!</button>
+        </form>
+
+        <button @click="updateCount">Increment counter: {{ count }}</button>
+
+        <button @click="count += 1">Increment2 counter: {{ count }}</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data : {
+                count: 0
+            },
+            methods:{
+                handleIt: function () {
+                    alert('handled');
+                },
+
+                updateCount: function () {
+                    this.count += 1
+                }
+            }
+        });
+    </script>
+</body>
+</html>

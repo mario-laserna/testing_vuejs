@@ -11,14 +11,21 @@
     </div>
 
     <template id="tasks-template">
-        <ul>
+        <h1>
+            My tasks <span v-show="remaining">({{ remaining }})</span>
+        </h1>
+        <ul v-show="list.length">
             <li :class="{'completed': task.completed}"
                 v-for="task in list"
                 @click="task.completed = !task.completed"
             >
                 {{ task.body }}
+                <strong style="cursor: pointer" @click="deleteTask(task)">X</strong>
             </li>
         </ul>
+        <p v-else>Not tasks remaining...</p>
+
+        <button @click="clearCompleted">Clear completed</button>
     </template>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.js"></script>
